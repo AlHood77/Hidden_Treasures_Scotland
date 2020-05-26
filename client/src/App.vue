@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper">
     <header class="header">
-      <h1>HIDDEN TREASURES SCOTLAND</h1>
+      <h1>Hidden Treasures of Scotland</h1>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet">
       <button class="add-place-btn" v-if="!showForm" @click="showForm=true">Add a new Place</button>
       <button class="add-place-btn" v-if="showForm" @click="showForm=false">HIDE</button>
     </header>
@@ -69,7 +71,7 @@ export default {
 .wrapper {
   max-width: 940px;
   margin: 0 20px;
-  /* display: grid;*/
+  display: grid;
   grid-gap: 10px;
 }
 
@@ -101,11 +103,14 @@ export default {
 }
 
 .wrapper > * {
-  background-color: #444;
-  color: #fff;
+  min-height: 10vh;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  background-color: #fff;
+  color: #666;
   border-radius: 5px;
-  padding: 20px;
-  font-size: 150%;
-  margin-bottom: 10px;
+  padding: 0px;
+  font-size: 14px;
+  /* margin-bottom: 10px; */
 }
 </style>
