@@ -71,18 +71,17 @@ export default {
   margin: 0 20px;
   /* display: grid;*/
   grid-gap: 10px;
+  
 }
 
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 
 .wrapper {
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-auto-rows: minmax(150px, auto);
+  
 }
 
 .header,
@@ -107,5 +106,7 @@ export default {
   padding: 20px;
   font-size: 150%;
   margin-bottom: 10px;
+ 
+  
 }
 </style>
