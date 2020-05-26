@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <header class="header">
-      <h1>TITLE</h1>
+      <h1>HIDDEN TREASURES SCOTLAND</h1>
       <button class="add-place-btn" v-if="!showForm" @click="showForm=true">Add a new Place</button>
       <button class="add-place-btn" v-if="showForm" @click="showForm=false">HIDE</button>
     </header>
