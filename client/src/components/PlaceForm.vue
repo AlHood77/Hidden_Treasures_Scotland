@@ -1,34 +1,33 @@
 <template>
   <form action="/" class="decor">
-    <div class="form-wrapper">
+    <!-- <div class="form-wrapper"> -->
       <form v-on:submit.prevent="handleSubmit()" action class="place-form">
-      <h2>Add a new place</h2>
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
-      rel="stylesheet">
+        <h2>Add a new place</h2>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+        rel="stylesheet">
 
-      <div class="single-input">
-        <label for="name">Place Name:</label>
-        <input type="text" id="name" name="name" v-model="name" required />
+        <div class="form-inner">  
+          <!-- <label for="name">Place Name:</label> -->
+          <input placeholder="Place Name" type="text" id="name" name="name" v-model="name" required />
+          <label for="lat">Latitude:</label>
+          <input placeholder="Latitude" type="number" step="any" id="lat" name="lat" v-model="lat" required />
+          <label for="long">Longitude:</label>
+          <input type="number" step="any" id="long" name="long" v-model="long" required />
+          <label for="type">Type</label>
 
-        <label for="lat">Latitude:</label>
-        <input type="number" step="any" id="lat" name="lat" v-model="lat" required />
-
-        <label for="long">Longitude:</label>
-        <input type="number" step="any" id="long" name="long" v-model="long" required />
-
-        <label for="type">Type</label>
           <select name="type" id v-model="type">
             <option v-for="(type, index) in types" :key="index">{{type}}</option>
           </select>
-      </div>
-      <div class="field-input">
-        <label for="description">Description:</label>
-        <textarea id="description" rows="5" name="description" v-model="description" required></textarea>
-      </div>
+        </div>
 
-      <input type="submit" name="submit" value="Save" />
+        <div class="field-input">
+          <!-- <label for="description">Description:</label> -->
+          <textarea placeholder="Description.." id="description" rows="5" name="description" v-model="description" required></textarea>
+        </div>
+        <input type="submit" name="submit" value="Submit" />
       </form>
-    </div>
+    <!-- </div> -->
+
     <div class="form-left-decoration"></div>
     <div class="form-right-decoration"></div>
     <div class="circle"></div>
@@ -42,8 +41,6 @@
     </div>  
 
   </form>
-    
-
 </template>
 
 <script>
@@ -86,9 +83,6 @@ export default {
 </script>
 
 <style>
-.form-wrapper{
-  box-sizing:border-box;
-  }
 html, body{
   box-sizing:border-box;
   min-height: 100vh;
@@ -98,6 +92,7 @@ html, body{
   font-size: 14px;
   color: #666;
 }
+
 input, textarea{
   outline: none;
 }
@@ -110,7 +105,7 @@ body{
 }
 h2{
   margin-top: 0;
-  font-weight: 500;
+  font-weight: 400;
 }
 .form{
   position: relative;
@@ -168,11 +163,10 @@ h2{
   border-radius: 50%;
   background: #fff;
 }
-.form-inner{
+/* .form-inner{
   padding: 40px;
-}
-.form-inner input,
-.form-inner textarea{
+} */
+/* .form-inner input{
   display: block;
   width: 100%;
   padding: 15px;
@@ -180,31 +174,27 @@ h2{
   border: none;
   border-radius: 20px;
   background: #d0dfe8;
-}
+} */
 .form-inner textarea{
   resize:none;
 }
-/* @media(min-width: 568px){
-  form{
-    width: 60%;
-  }
-} */
-  /* min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  font-family:Roboto, Arial, sans-serif;
-  font-size: 14px;
-  color: #666;
-} */
-
-
 .single-input {
-  /* display: grid;
+  display: grid;
   grid-template-columns: auto;
-  width: 50%; */
+  width: 50%;
 }
+.form-inner input,
+.field-input,
+.field-input textarea {
+  resize:none;
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #d0dfe8;
 
-.field-input {
   /* display: flex;
   flex-direction: column;
   justify-content: center;
