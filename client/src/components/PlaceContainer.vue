@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <h2>{{this.place.name}}</h2>
     <div class="place-container">
       <place-image :place="this.place"></place-image>
       <place-description :place="this.place"></place-description>
@@ -38,11 +39,20 @@ export default {
 .place-container {
   display: grid;
   grid-template-columns: 40% 60%;
+  height: auto;
+  min-height: 30vh;
   justify-items: center;
+  align-items: center;
   width: 100%;
+  background-color: #254261;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  border-radius: 10px;
+  margin-bottom: 10vh;
 }
 
 .wrapper {
-  height: auto;
+  display: grid;
+  grid-template-columns: auto;
 }
 </style>

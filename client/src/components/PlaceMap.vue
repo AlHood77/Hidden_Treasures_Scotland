@@ -11,7 +11,8 @@
       >
         <l-popup :content="place.name" :options="{autoClose: true, closeOnClick: false}"></l-popup>
         <l-icon
-        :icon-url="icon">
+        :icon-url="icon"
+        class="marker-icon">
           
         </l-icon>
       </l-marker>
@@ -76,12 +77,9 @@ export default {
       eventBus.$emit('location-selected', e.latlng)
     },
 
-<<<<<<< HEAD
-=======
  
 
 
->>>>>>> aeea0c806e28a344deb1bc123da236b16f1d6095
     openPopup: function(e) {
       Vue.nextTick(() => {
         e.target.openPopup();

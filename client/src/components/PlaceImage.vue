@@ -16,7 +16,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+/* div{
+  align-items: center;
+} */
+
 .image {
   width: 30vw;
 }
