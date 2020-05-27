@@ -2,11 +2,20 @@
   <div class="wrapper">
     <header class="header">
       <h1>TITLE</h1>
-      <button class="add-place-btn" v-if="!showForm" @click="showForm=true">Add a new Place</button>
+        
+      
+        <button class="add-place-btn" v-if="!showForm" @click="showForm=true">Add a new Place</button> 
+     
       <button class="add-place-btn" v-if="showForm" @click="showForm=false">HIDE</button>
-    </header>
+       
+      
+   
+       
 
+    </header>
+  <transition name="fade">
     <place-form v-if="showForm" :places="places" :types="types"></place-form>
+    </transition>
     <place-map :places="places"></place-map>
     <place-container v-if="selectedPlace" :place="selectedPlace"></place-container>
     <footer class="footer">FOOTER</footer>
@@ -28,7 +37,8 @@ export default {
     return {
       places: [],
       selectedPlace: null,
-      showForm: true
+      showForm: false
+      
     };
   },
   mounted() {
@@ -66,23 +76,43 @@ export default {
 </script>
 
 <style>
-.wrapper {
-  max-width: 940px;
-  margin: 0 20px;
-  /* display: grid;*/
-  grid-gap: 10px;
-  
+
+.fade-enter-active {
+  animation: fade-in .9s;
+}
+.fade-leave-active {
+  animation: fade-in .6s reverse;
+}
+@keyframes fade-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 
+/* .wrapper {
+  max-width: 940px;
+  margin: 0 20px;
 
-.wrapper {
+  grid-gap: 10px;
+  
+} */
+
+
+
+/* .wrapper {
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-auto-rows: minmax(150px, auto);
   
-}
+} */
 
 .header,
 .footer {
@@ -99,6 +129,8 @@ export default {
   align-items: center;
 }
 
+
+
 .wrapper > * {
   background-color: #444;
   color: #fff;
@@ -109,4 +141,5 @@ export default {
  
   
 }
+
 </style>

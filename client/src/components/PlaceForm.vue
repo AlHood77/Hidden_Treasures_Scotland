@@ -171,7 +171,7 @@ input[type=submit] {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
-  width: 60vw;
+  width: 95vw;
   color: black;
 }
 
@@ -193,7 +193,7 @@ input[type=submit] {
 }
 
 @media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
+  .col-25, .col-75, h2, input[type=submit] {
     width: 100%;
     margin-top: 0;
     text-align: center;

@@ -1,13 +1,15 @@
 <template>
   <div class="row map">
-    <l-map @update:zoom="zoomUpdate" :zoom="zoom" :center="center">
+    <l-map @update:zoom="zoomUpdate" :zoom="zoom" :center="center" :options="{scrollWheelZoom: false}">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+      <l-control-scale position="topright" :imperial="true" :metric="false"></l-control-scale>
       <l-marker
         v-for="(place, index) in this.places"
         :key="index"
         :latLng="latLng(place.lat, place.long)"
         @click="handleClick(place)"
         @add="openPopup"
+        
       >
         <l-popup :content="place.name" :options="{autoClose: true, closeOnClick: false}"></l-popup>
         <!-- <l-icon icon-anchor="[16, 37]" class-name="marker"></l-icon> -->
@@ -18,7 +20,7 @@
 
 <script>
 import L from "leaflet";
-import { LMap, LTileLayer, LMarker, LIcon, LPopup } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LIcon, LPopup, LControlScale } from "vue2-leaflet";
 import { eventBus } from "../main.js";
 
 export default {
@@ -30,7 +32,7 @@ export default {
         "https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=3576413ab5c044b1be3431efff7b1149",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      // iconSize: [40, 40]
+      
     };
   },
   props: ["places"],
@@ -39,7 +41,8 @@ export default {
     LTileLayer,
     LMarker,
     LIcon,
-    LPopup
+    LPopup,
+    LControlScale
   },
 
   methods: {
@@ -49,6 +52,7 @@ export default {
 
     zoomUpdate: function(zoom) {
       this.currentZoom = zoom;
+   
     },
 
     handleClick(place) {
@@ -83,4 +87,9 @@ export default {
 .leaflet-popup-tip-container {
 
 } */
+
+.Island {
+  color: red;
+  background-color: red;
+}
 </style>
