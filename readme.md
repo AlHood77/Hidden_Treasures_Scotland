@@ -15,3 +15,15 @@ Users can submit new places to the API.
 - Add new Place
 - Place Comments
 - Place Information
+
+## Running the site locally
+
+1. In MongoDB create a database called treasures
+
+2. Once you've pulled the code down from github go into the "client" and "server" folders and run npm i in both folders
+
+3. In the server folder seed the database npm run seeds
+
+4. Run the Express server, npm run server:dev and visit this url to make sure the data from the seeds file is there, http://localhost:3000/api/facts/
+
+5. Now you can now either run the client locally going into the client folder running npm run serve then go most likely to http://localhost:8080/ in your browser
