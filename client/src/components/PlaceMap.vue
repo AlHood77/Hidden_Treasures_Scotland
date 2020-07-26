@@ -104,10 +104,11 @@ export default {
 
 <style lang="css" scoped>
 .map {
-  height: 60vh;
-  width: 100%;
+  height: 70vh;
+  width: 90%;
   margin-left: 5px;
   margin-right: 5px;
+  display: inline-block;
 }
 
 .point:hover {
@@ -116,6 +117,10 @@ export default {
 
 .marker{
   box-shadow: #888888;;
+}
+
+.leaflet-marker-icon {
+  
 }
 
 /* .leaflet-popup-content-wrapper {

@@ -1,28 +1,56 @@
 <template>
   <div>
     <form v-on:submit.prevent="handleSubmit()" class="form-wrapper">
-      <h3>Enter Details</h3>
-      <div class="single-input">
-        <label for="name">Place Name:</label>
-        <input type="text" id="name" name="name" v-model="name" required />
+      
+      
+        <div class="form-row">
+            <div class="col-25">
+                <label for="name">Place Name:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="name" name="name" v-model="name" required />
+            </div>
+        </div>
 
-        <label for="lat">Latitude:</label>
-        <input type="number" step="any" id="lat" name="lat" v-model="lat" required />
+        <div class="form-row">
+            <div class="col-25">
+                <label for="lat">Latitude:</label>
+            </div>
+            <div class="col-75">
+               <input type="number" step="any" id="lat" name="lat" v-model="lat" required />
+            </div>
+        </div>
 
-        <label for="long">Longitude:</label>
-        <input type="number" step="any" id="long" name="long" v-model="long" required />
-
-        <label for="type">Type</label>
-        <select name="type" id v-model="type">
-          <option v-for="(type, index) in types" :key="index">{{type}}</option>
-        </select>
-      </div>
-      <div class="field-input">
-        <label for="description">Description:</label>
-        <textarea id="description" rows="5" name="description" v-model="description" required></textarea>
-      </div>
-
-      <input type="submit" name="submit" value="Save" class="submit-button"/>
+        <div class="form-row">
+            <div class="col-25">
+                <label for="long">Longitude:</label>
+            </div>
+            <div class="col-75">
+               <input type="number" step="any" id="long" name="long" v-model="long" required />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-25">
+                <label for="type">Type</label>
+            </div>
+            <div class="col-75">
+               <select name="type" id v-model="type">
+                  <option v-for="(type, index) in types" :key="index">{{type}}</option>
+               </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-25">
+                <label for="description">Description:</label>
+            </div>
+            <div class="col-75">
+               <textarea id="description" rows="5" name="description" v-model="description" required></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <input type="submit" name="submit" value="Save" class="submit-button"/>
+        </div>
+  
     </form>
   </div>
 </template>
@@ -74,55 +102,69 @@ export default {
 
 <style scoped>
 
-input, select, textarea{
-  background-color: #141C3D   ;
-  color: #DAFEFF ;
-  border: none;
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], [type=number], select, textarea {
   width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }
 
-label{
-  font-size: 1em;
+label {
+  padding: 12px 12px 12px 0px;
+  display: inline-block;
 }
 
-.submit-button{
-  height: 5vh;
-  width: 5vh;
-  border-radius: 50%;
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }
 
 .form-wrapper {
-  display: grid;
-  grid-template-columns: auto;
-  min-height: 60vh;
-  min-width: 20vw;
-  justify-items: center;
-  align-items: center;
-  background-color: #254261 ;
-  color: #DAFEFF ;
-}
-
-
-.single-input {
-  display: grid;
-  grid-template-columns: auto auto;
-  row-gap: 3vh;
-  align-content: center;
-  width: 90%;
-}
-
-.field-input {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  height: 100%;
-  align-self: center;
-}
-
-#description{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
   width: 100%;
-  height: 90%; 
+  height: 100%;
+  text-align: center;
 }
 
+.col-25 {
+  float: left;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: right;
+  width: 100%;
+}
+
+/* Clear floats after the columns */
+.form-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
 
 </style>

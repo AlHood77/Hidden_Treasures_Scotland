@@ -13,30 +13,28 @@
             <p>
             Are you ready to explore?
             </p>
+            <p>Click on a map icon to see more information</p>
       </div>
 
       <div>
         <button class="add-place-btn" v-if="!showForm" @click="showForm=true">Add a new Place</button>
+         
       </div>
     </div>
 
 
+  
     <div class="place-map-container">
-
-      <transition name="fade" mode="out-in">
+<transition name="fade" mode="out-in">
         <place-form v-if="showForm" :places="places" :types="types"></place-form>
       </transition>
+      
 
       <div v-if="!showForm"></div>
       <place-map :places="places"></place-map>
     </div>
     <place-container v-if="selectedPlace" :place="selectedPlace"></place-container>
-    <footer class="footer">
-      <p>Your eyes are weary from staring at the LCD. You feel sleepy. 
-        Notice how restful it is to watch the cursor blink. Close your eyes. 
-        The places stated above are wholly for informational purposes. 
-        You cannot imagine why you ever felt otherwise.</p>
-    </footer>
+   
   </div>
 </template>
 
@@ -128,7 +126,7 @@ body{
 
 .place-map-container{
   display: flex;
-  margin-bottom: 10vh;
+  justify-content: center;
 }
 
 .add-place-btn{
