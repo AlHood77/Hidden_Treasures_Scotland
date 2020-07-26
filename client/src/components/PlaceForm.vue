@@ -50,6 +50,7 @@
         <div class="form-row">
             <input type="submit" name="submit" value="Save" class="submit-button"/>
         </div>
+        <p v-on:click="closeForm()">X</p>
   
     </form>
   </div>
@@ -96,6 +97,8 @@ export default {
       this.description = "";
       this.type = "";
     }
+
+    
   }
 };
 </script>

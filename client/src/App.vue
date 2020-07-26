@@ -18,7 +18,7 @@
 
       <div>
         <button class="add-place-btn" v-if="!showForm" @click="showForm=true">Add a new Place</button>
-         
+        <button class="close-form-btn" v-if="showForm" @click="showForm=false">Close Form</button>   
       </div>
     </div>
 
@@ -129,7 +129,7 @@ body{
   justify-content: center;
 }
 
-.add-place-btn{
+.add-place-btn, .close-form-btn{
   height: 100px;
   width: 200px;
   font-size: 1em;

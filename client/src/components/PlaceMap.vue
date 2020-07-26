@@ -17,7 +17,7 @@
         ></l-popup>
         <l-icon
         :icon-url="`${publicPath}${place.type.toLowerCase().replace(/\s/g, '')}.png`"
-        class="marker-icon">
+        class="marker-icon" v-on:click="seeItem()">
         </l-icon>
         {{getIconUrl(place)}}
       </l-marker>
@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       selectedLatLong: 0,
-      zoom: 6,
+      zoom: 7,
       center: L.latLng(57.036701, -5.038022),
       url:
         "https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=3576413ab5c044b1be3431efff7b1149",
@@ -92,6 +92,10 @@ export default {
         console.log(`${place.type.toLowerCase().replace(/\s/g, '')}.png`);
     },
 
+    // seeItem: function(){
+
+    // }
+
 
     openPopup: function(e) {
       Vue.nextTick(() => {
@@ -119,12 +123,10 @@ export default {
   box-shadow: #888888;;
 }
 
-.leaflet-marker-icon {
+
+
+.leaflet-popup-content-wrapper {
   
-}
-
-/* .leaflet-popup-content-wrapper {
-
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content {
@@ -132,6 +134,6 @@ export default {
 }
 
 .leaflet-popup-tip-container {
-
-} */
+  
+}
 </style>
