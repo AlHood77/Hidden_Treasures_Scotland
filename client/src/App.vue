@@ -132,11 +132,15 @@ body{
 }
 
 .add-place-btn{
-  height: 15vh;
-  width: 15vw;
+  height: 100px;
+  width: 200px;
   font-size: 1em;
   background: none;
   border: none;
+  background: #254261;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
 }
 .add-place-btn:hover{
   border: 0.3vh solid #ebda2eff;
@@ -155,6 +159,8 @@ body{
   color: #DAFEFF ;
   text-align: ;
 }
+
+
 
 
 
